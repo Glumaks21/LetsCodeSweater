@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Message list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+</script>
+<body>
+<nav id="page-nav-panel" th:with="curPage=${page.getNumber()}, curSize=${page.getSize}">
+    <ul class="pagination">
+        <li class="page-item disabled">
+            <a class="page-link">Page</a>
+        </li>
+        <li th:each="pageNum : ${#numbers.sequence(0, page.getTotalPages() - 1)}"
+            class="page-item" th:classappend="${pageNum == curPage}? ' active'">
+            <a th:text="${pageNum + 1}" class="page-link" th:href="@{__${url}__(page=${pageNum}, size=${curSize})}">PAGE NUMBER</a>
+        </li>
+        <li class="page-item" th:classappend="${curPage >= page.getTotalPages() - 1}? ' disabled'">
+            <a class="page-link" th:href="@{__${url}__(page=${curPage + 1}, size=${curSize})}">Next</a>
+        </li>
+    </ul>
+    <ul class="pagination">
+        <li class="page-item disabled">
+            <a class="page-link">Size</a>
+        </li>
+        <li th:each="sizeNum : ${#numbers.sequence(5, 45, 10)}"
+            class="page-item" th:classappend="${sizeNum == curSize}? ' active'">
+            <a th:text="${sizeNum}" class="page-link" th:href="@{__${url}__(page=${curPage}, size=${sizeNum})}">SIZE NUMBER</a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

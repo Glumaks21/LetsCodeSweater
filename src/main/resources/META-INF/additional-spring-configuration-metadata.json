@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "recaptcha.secret",
+      "type": "java.lang.String",
+      "description": "Using to send g-response to google recapthca validation server"
+    }
+  ]
+}

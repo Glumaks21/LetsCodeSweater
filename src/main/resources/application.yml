@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sweater
+    username: root
+    password: root
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+upload:
+  path: D:/LetsCodeSweater/upload
+
+context:
+  path: http://localhost:8080/
+
+recaptcha:
+  secret: 6LfiPJgkAAAAAAWPrHvZo7nO3jc-KgvBTUPIO-73
