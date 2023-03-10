@@ -32,7 +32,7 @@ public class RegistrationController {
     public String registration(
             @ModelAttribute("user") RegistrationForm registrationForm,
             BindingResult bindingResult,
-            @RequestParam("g-recaptcha-response") String recaptchaResponse
+            @RequestParam(required = false, name = "g-recaptcha-response") String recaptchaResponse
     ) {
         registrationForm.setRecaptchaResponse(recaptchaResponse);
         validator.validate(registrationForm, bindingResult);
