@@ -4,7 +4,6 @@
 * Spring MVC
 * Spring Security
 * Spring Data
-* Spring Data
 * Thymeleaf
 * Flyway
 
